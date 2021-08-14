@@ -47,10 +47,12 @@ class SetDict(object):
 
     def __init__(self):
         self.flows_sets = dict()
+        self.element_set = set()
 
     def add_element(self, flow_id, element):
         if flow_id not in self.flows_sets:
             self.flows_sets[flow_id] = set()
+        self.element_set.add(element)
         self.flows_sets[flow_id].add(element)
 
     def query_element_in_set(self, flow_id, element):
