@@ -1,3 +1,4 @@
+'''
 #%%
 import dpkt
 
@@ -33,3 +34,12 @@ print("Total number of packets in the pcap file: ", counter)
 print("Total number of ip packets: ", ipcounter)
 print("Total number of tcp packets: ", tcpcounter)
 print("Total number of udp packets: ", udpcounter)
+'''
+# %%
+from PruneBloomTree import PrunBloomTree
+
+a = PrunBloomTree(10000, 0.01)
+a.add(b'123')
+a.add(b'234')
+print(a.get_elements_in_set())
+# %%

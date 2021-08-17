@@ -1,0 +1,523 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Switch and router architectures - Final project
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+\bar under
+Name of student
+\bar default
+s:
+\begin_inset space ~
+\end_inset
+
+Ariel Zilbershteyin,Efi Sapir
+\end_layout
+
+\begin_layout Section*
+Summary-Generalized Sketch Families for Network Traffic Measurement
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This paper establishes a common framework, each for a family of traffic
+\end_layout
+
+\begin_layout Standard
+measurement solutions that share the same implementation structure,
+\end_layout
+
+\begin_layout Standard
+providing a high level of generality, for both size and spread measurements
+ 
+\end_layout
+
+\begin_layout Standard
+and for all flows.The designs support many options of a
+\end_layout
+
+\begin_layout Standard
+performance-overhead tradeoff with as few as one
+\end_layout
+
+\begin_layout Standard
+memory update per packet and as little space as several bits per-flow on
+ 
+\end_layout
+
+\begin_layout Standard
+average.The given family based approach unifies implantation by 
+\end_layout
+
+\begin_layout Standard
+removing redundancy for different measurement tasks and support
+\end_layout
+
+\begin_layout Standard
+reconfigurability in a plug-and-play manner.
+\end_layout
+
+\begin_layout Standard
+There are 3 types of proposed frameworks.
+\end_layout
+
+\begin_layout Standard
+bSketch - a generalization of the structure of the counting bloom filter
+\end_layout
+
+\begin_layout Standard
+to a family of sketches.
+\end_layout
+
+\begin_layout Standard
+Its generalized structure expands the measurement scope from flow 
+\end_layout
+
+\begin_layout Standard
+size to flow spread and
+\end_layout
+
+\begin_layout Standard
+other statistics or their combinations 
+\end_layout
+
+\begin_layout Standard
+cSketch- a generalization of the structure of the countMin data
+\end_layout
+
+\begin_layout Standard
+structure to a family of sketches.
+\end_layout
+
+\begin_layout Standard
+vSketch - a family of virtual sketches that works well in tight memory 
+\end_layout
+
+\begin_layout Standard
+averaging several bits per flow.
+ Its low overhead supports much higher 
+\end_layout
+
+\begin_layout Standard
+packet throughput than bSketch.
+\end_layout
+
+\begin_layout Standard
+Also, its generalized design gives an effective mechanism
+\end_layout
+
+\begin_layout Standard
+for noise measurement and removal,making its member sketches
+\end_layout
+
+\begin_layout Standard
+more accurate than prior work for multi-flow spread measurement.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Critical review
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we review the content of the paper.
+\end_layout
+
+\begin_layout Standard
+Althought the given data strucutres that are defined in the paper 
+\begin_inset Quotes eld
+\end_inset
+
+Generalized Sketch familes 
+\begin_inset Quotes erd
+\end_inset
+
+ work great in the given context ,there exists 
+\end_layout
+
+\begin_layout Standard
+some trading between accuracy and better memory effiency.This trade in also
+ includes noise which grows larger under stringent resource and performance
+ constraints.
+\end_layout
+
+\begin_layout Standard
+This noise is positivley biased .This problem was partly addresses in the
+ design of the vSketch but not in the design of bSketch or cSketch.
+\end_layout
+
+\begin_layout Standard
+It is important to note that that algorithm 
+\end_layout
+
+\begin_layout Section*
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Personal contribution
+\end_layout
+
+\begin_layout Standard
+We design a new data structure called bSetDic used for reversible flow cardianli
+ty.
+\end_layout
+
+\begin_layout Subsection*
+Introduction
+\end_layout
+
+\begin_layout Standard
+The problem of reversible flow cardianlity is an extention of the classic
+ problem of flow cardianlity problem.
+\end_layout
+
+\begin_layout Standard
+Classical sketches are proven to effective yet non invertive:while they
+ can query a sketch to identify it's cardanity,
+\end_layout
+
+\begin_layout Standard
+they cannot readliy recover all the unique values.
+\end_layout
+
+\begin_layout Standard
+In this project we present bSetDic which is a data structure based on the
+ bSketch dataset designed for reversiable flow cardianlity.
+\end_layout
+
+\begin_layout Subsection*
+Background
+\end_layout
+
+\begin_layout Standard
+We assume the same generalized flow model which is presents in the paper
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Generalized Sketch Families for Network Traffic Measurement
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where incoming packet streams are abstracted as a sequence of <f,e> pairs
+ where f is an
+\end_layout
+
+\begin_layout Standard
+incoming flow ID and e is an element to be measured.The flow ID describing
+ the flows
+\end_layout
+
+\begin_layout Standard
+under measurments may be per-source flows,per-destination flows
+\end_layout
+
+\begin_layout Standard
+,per source,destintion flows,TCP flws,WW flows,P2P flows or other application
+ specific flows.
+\end_layout
+
+\begin_layout Standard
+We define reversible Flow spread is as the set of distinct elements in each
+ flow where elememnts under measurments may 
+\end_layout
+
+\begin_layout Standard
+destination address ,source address, ports of even application header fields.
+\end_layout
+
+\begin_layout Standard
+Such infomation allows us to correctly identify and map the beahvious of
+ every flow,and by thos exact understanding of 
+\end_layout
+
+\begin_layout Standard
+the behavious of network traffic.
+\end_layout
+
+\begin_layout Subsection*
+Our solution
+\end_layout
+
+\begin_layout Standard
+Using the bSketch family presented in the reviewd paper we devised a new
+ data structure for extract reconstruction of 
+\end_layout
+
+\begin_layout Standard
+measured elements for each flow.
+\end_layout
+
+\begin_layout Standard
+However,unlike the bSketch we must assume that memory constrains are much
+ lower ,as saving information about
+\end_layout
+
+\begin_layout Standard
+elements under measurments can be costly.
+\end_layout
+
+\begin_layout Standard
+Our data strucutre consists of an array of pointers to locations of sets
+ arrays.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the bSketch sketch family presented in the our paper we devised a
+ new data structure used for data set reconstriction.
+\end_layout
+
+\begin_layout Standard
+The dataset we design called bSetDic will be an array of 
+\begin_inset Formula $l$
+\end_inset
+
+pointers to sets .
+\end_layout
+
+\begin_layout Standard
+We will denote this array with A.
+\end_layout
+
+\begin_layout Standard
+There are two basic operations:
+\end_layout
+
+\begin_layout Standard
+recording an incoming packet <f,e> and querying the set of a flow f.
+\end_layout
+
+\begin_layout Standard
+For recording ,we hash f to d pointers in the array and record in thos estimator
+s 
+\begin_inset Formula $A[H_{i}(f)]$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $0\leq i<d$
+\end_inset
+
+, see algorithm 1.
+\end_layout
+
+\begin_layout Standard
+We assume that the hash functions are taken from a master hash function
+ H and 
+\begin_inset Formula $H_{i}(f)=H(f\oplus s[i])$
+\end_inset
+
+ and 
+\end_layout
+
+\begin_layout Standard
+s is an array of m randomly seletected seeds.
+\end_layout
+
+\begin_layout Standard
+For querying about some flow f we hash f to d estimators and return the
+ minimum 
+\end_layout
+
+\begin_layout Standard
+value produced from those estimators,see algorithm 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/arikz/Documents/architecture/project/GeneralizedSketchFamilies/docs/reports/images/pasted3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+bSetDic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/arikz/Documents/architecture/project/GeneralizedSketchFamilies/docs/reports/images/pasted4.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/arikz/Documents/architecture/project/GeneralizedSketchFamilies/docs/reports/images/pasted5.png
+	scale 40
+
+\end_inset
+
+
+\backslash
+
+\end_layout
+
+\begin_layout Subsection*
+Estimation accuracy
+\end_layout
+
+\begin_layout Subsection*
+Evaluation
+\end_layout
+
+\begin_layout Subsubsection*
+Implementation
+\end_layout
+
+\begin_layout Standard
+We implmented bSetDic in python.The related code can be found in github:
+ https://github.com/efi136/bSetDict
+\end_layout
+
+\end_body
+\end_document
