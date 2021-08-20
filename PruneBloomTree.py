@@ -20,7 +20,7 @@ class PrunBloomTree(object):
         return BloomFilter(max_elements=number_of_elements, error_rate=self.error_rate)
 
     def get_bin_element(self, element):
-        return b''.join([bin(a)[2:].zfill(8) for a in element])
+        return b''.join([bin(a)[2:].zfill(8).encode() for a in element])
 
     def unbin_element(self, s):
         return bytes(int(s[i : i + 8], 2) for i in range(0, len(s), 8))
@@ -73,6 +73,6 @@ class PrunBloomTree(object):
                 cur_candidate = cur_element + b
                 if self._prefix_exists(cur_candidate):
                     element_queue.appendleft(cur_candidate)
-                if self.exists(cur_candidate):
+                if (len(cur_candidate) % 8 == 0) and self.exists(self.unbin_element(cur_candidate)):
                     elements.add(self.unbin_element(cur_candidate))
         return elements
