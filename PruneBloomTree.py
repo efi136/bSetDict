@@ -3,8 +3,8 @@ from collections import deque
 
 class PrunBloomTree(object):
 
-    ELEMENT_END = b'#!element_end'
-    ELEMENT_START = b'#!element_start'
+    ELEMENT_END = b'e'
+    ELEMENT_START = b's'
 
     def __init__(self, max_size, error_rate):
         """
@@ -19,11 +19,18 @@ class PrunBloomTree(object):
         number_of_elements = self.max_size
         return BloomFilter(max_elements=number_of_elements, error_rate=self.error_rate)
 
+    def get_bin_element(self, element):
+        return b''.join([bin(a)[2:].zfill(8) for a in element])
+
+    def unbin_element(self, s):
+        return bytes(int(s[i : i + 8], 2) for i in range(0, len(s), 8))
+
     def add(self, element):
         """
         adds the element to the set.
         The element should be of type bytes.
         """
+        element = self.get_bin_element(element)
         for i in range(len(element)):
             cur_substring = self.ELEMENT_START + element[:i]
             if len(self.bloom_filters) <= i:
@@ -38,6 +45,7 @@ class PrunBloomTree(object):
         Returns True if the element is in the set.
         The element should be of type bytes.
         """
+        element = self.get_bin_element(element)
         if len(self.bloom_filters) <= len(element):
             return False
         return (element + self.ELEMENT_END) in self.bloom_filters[len(element)]
@@ -61,10 +69,10 @@ class PrunBloomTree(object):
             elements.add(b'')
         while len(element_queue) != 0:
             cur_element = element_queue.pop()
-            for b in range(256):
-                cur_candidate = cur_element + bytes([b])
+            for b in [b'0', b'1']:
+                cur_candidate = cur_element + b
                 if self._prefix_exists(cur_candidate):
                     element_queue.appendleft(cur_candidate)
                 if self.exists(cur_candidate):
-                    elements.add(cur_candidate)
+                    elements.add(self.unbin_element(cur_candidate))
         return elements
