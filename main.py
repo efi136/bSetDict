@@ -68,10 +68,11 @@ def compare_performance_on_random(conn, max_size, base_error_rate, number_of_ele
     r.save_result_to_db(conn, result_set, bloom_tree)
 
 
-number_of_elements_values = [100, 1000, 10000, 100000]
+number_of_elements_values = [100, 1000]
 number_of_destinations_values = [100, 1000, 10000]
 number_of_sources_values = [100, 1000, 10000]
-base_error_rate_values = [0.2]
+base_error_rate_values = [0.2, 0.3, 0.4, 0.5]
+size_ratio_values = [5,6,7,8,9]
 
 def random_results():
     conn = create_db('./random_results.db')
@@ -81,8 +82,9 @@ def random_results():
             print(e)
             for srcs in number_of_sources_values:
                 for dsts in number_of_destinations_values:
-                    print("Running...")
-                    compare_performance_on_random(conn, e*10, base_error_rate, e, dsts, srcs)
+                    for size_ratio in size_ratio_values:
+                        print("Running...")
+                        compare_performance_on_random(conn, e*size_ratio, base_error_rate, e, dsts, srcs)
     conn.close()
 
 def main():
