@@ -71,7 +71,7 @@ def compare_performance_on_random(conn, max_size, base_error_rate, number_of_ele
 number_of_elements_values = [100, 1000, 10000, 100000]
 number_of_destinations_values = [100, 1000, 10000]
 number_of_sources_values = [100, 1000, 10000]
-base_error_rate_values = [0.1, 0.05, 0.01, 0.005, 0.001]
+base_error_rate_values = [0.2]
 
 def random_results():
     conn = create_db('./random_results.db')
