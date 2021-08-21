@@ -1,0 +1,341 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Switch and router architectures - Final project
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+\bar under
+Name of student
+\bar default
+s:
+\begin_inset space ~
+\end_inset
+
+Ariel Zilbershteyin,Efi Sapir
+\end_layout
+
+\begin_layout Section*
+Summary-Sampling and Reconstruction Using Bloom Filters 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The reviewed paper introduces a new data structure called
+\end_layout
+
+\begin_layout Standard
+BloomSampleTree.The BloomSampleTree is a hierarchical data 
+\end_layout
+
+\begin_layout Standard
+the structure which is an extension of the generic bloom filter.
+\end_layout
+
+\begin_layout Standard
+This data structure helps design efficient algorithms used to extract almost
+\end_layout
+
+\begin_layout Standard
+uniform sample from the set stored in a Bloom filter.Given that the
+\end_layout
+
+\begin_layout Standard
+algorithm uses a partially invertible hash function, i.e a hash function
+ that
+\end_layout
+
+\begin_layout Standard
+allows to easily calculate set of elements that map to a particular hash
+\end_layout
+
+\begin_layout Standard
+value the paper introduces a more space-efficient method called Hashinvert
+\end_layout
+
+\begin_layout Standard
+for the task of reconstruction.Furthermore, the paper provides an upper
+\end_layout
+
+\begin_layout Standard
+bound on run times for both methods and sample quality of the algorithms
+ 
+\end_layout
+
+\begin_layout Standard
+that is based on the BloomSampleTree and proves the efficiency and 
+\end_layout
+
+\begin_layout Standard
+effectiveness of the algorithms.
+ There are different approaches to store the
+\end_layout
+
+\begin_layout Standard
+data.One of the approaches requires creating a tree that holds the entire
+ 
+\end_layout
+
+\begin_layout Standard
+namespace where a large number of the nodes are going to be empty.
+\end_layout
+
+\begin_layout Standard
+An important feature of the used hash family is that it is not required
+ to be
+\end_layout
+
+\begin_layout Standard
+invertible.
+ It only needs to be useable by the BloomSampleTree algorithms.
+\end_layout
+
+\begin_layout Standard
+Also, it is important to note that the algorithm does not distinguish between
+\end_layout
+
+\begin_layout Standard
+true elements of the set stored in the bloom filter and the false positives
+ that 
+\end_layout
+
+\begin_layout Standard
+are created in the process of insertion.The method is designed to
+\end_layout
+
+\begin_layout Standard
+work efficiently in the scenario where the namespace is potentially large,
+ 
+\end_layout
+
+\begin_layout Standard
+even dynamic,the number of interesting subsets is large and may 
+\end_layout
+
+\begin_layout Standard
+continue to grow indefinitely.Also when there is a need to either sample
+ form
+\end_layout
+
+\begin_layout Standard
+or reconstruct a subset form set of interesting subsets, stored in the bloom
+\end_layout
+
+\begin_layout Standard
+filter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Critical review
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we will review the content of the paper.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proposed data structure and it's assosicate algorithm althought work
+ great given its required task of 
+\end_layout
+
+\begin_layout Standard
+sampling and reconstruction.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, it is important to note that BloomSampleTree has limited use cases
+ ,due to it's runtime and memory usage.
+\end_layout
+
+\begin_layout Standard
+The BloomSampleTree datastrucutre is comprised of multiple leve
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It important to note that a great feature of the propsed dataset is that
+ it's accuracy only contains trade-off
+\end_layout
+
+\begin_layout Standard
+bettween accuracy and runtime.
+\end_layout
+
+\begin_layout Section*
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Personal contribution
+\end_layout
+
+\begin_layout Standard
+In this section we describe our personal contribution
+\end_layout
+
+\begin_layout Standard
+Let us assume that incoming trafic can be abstracted as <f,e> where f is
+ the flow id of the flow to be measurmend as e is the measured elelment.
+\begin_inset Newline newline
+\end_inset
+
+We extended the BloomSampleTree data structure to handle elements of the
+ form <f,e>.This is done by extending the hash function to support tuples.
+\end_layout
+
+\begin_layout Subsubsection*
+Implementation
+\end_layout
+
+\begin_layout Standard
+We implmented the extended version of BloomSampleTree in python.The related
+ code can be found in github: https://github.com/efi136/
+\end_layout
+
+\begin_layout Subsubsection*
+Evaluation
+\end_layout
+
+\begin_layout Standard
+In order to evalutae the performance of our extended BloomSampleTree we
+ downloaded the dataset set:__________ 
+\end_layout
+
+\begin_layout Standard
+We then acheived the following results:
+\end_layout
+
+\begin_layout Standard
+As you can see____
+\end_layout
+
+\end_body
+\end_document
