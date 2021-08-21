@@ -228,31 +228,62 @@ Critical review
 \end_layout
 
 \begin_layout Standard
-In this section we review the content of the paper.
+In this section we will review the content of the paper.
 \end_layout
 
 \begin_layout Standard
-The proposed bloom filter structure althought given its content is has great
- performance, is requivest considrble creation time.
+\begin_inset Formula $ $
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Also 
+The proposed data structure and it's assosicate algorithm althought work
+ great given its required task of 
 \end_layout
 
 \begin_layout Standard
-The provided structure can have limited uses as the data strucuture reqiures
- a large meomory use.
+sampling and reconstruction.
 \end_layout
 
 \begin_layout Standard
-Also it is important to mention that the data strucutre accuracy contains
- a trade off between accuracy and runtime.
+\begin_inset Formula $ $
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-By the presented results we can see that the amount of time that takes to
- recevie 
+However, it is important to note that BloomSampleTree has limited use cases
+ ,due to it's runtime and memory usage.
+\end_layout
+
+\begin_layout Standard
+The BloomSampleTree datastrucutre is comprised of multiple leve
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It important to note that a great feature of the propsed dataset is that
+ it's accuracy only contains trade-off
+\end_layout
+
+\begin_layout Standard
+bettween accuracy and runtime.
 \end_layout
 
 \begin_layout Section*
